@@ -17,7 +17,7 @@ public partial class Minion : CharacterBody3D
             MoveAndSlide();
             return;
         }
-
+        //t
         Vector3 next = navigationAgent.GetNextPathPosition();
 
         Vector3 direction = next - GlobalPosition;
