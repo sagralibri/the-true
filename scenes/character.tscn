@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dllb1unx13qoy"]
+
+[ext_resource type="Script" uid="uid://deniuyy3jps3x" path="res://scenes/Movable.cs" id="1_agfs1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vu45j"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_glpr6"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1058254399 node_paths=PackedStringArray("navigationAgent")]
+transform = Transform3D(0.305, 0, 0, 0, 0.305, 0, 0, 0, 0.305, 0, 0, 0)
+script = ExtResource("1_agfs1")
+navigationAgent = NodePath("NavigationAgent3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1178175169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0041579, 0)
+mesh = SubResource("CapsuleMesh_vu45j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=432052090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0292714, 0)
+shape = SubResource("CapsuleShape3D_glpr6")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1232424856]
+transform = Transform3D(1, 0, 0, 0, 0.6574341, 0.753512, 0, -0.753512, 0.6574341, 0.115226746, 6.5351877, 4.5960364)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=378040933]
