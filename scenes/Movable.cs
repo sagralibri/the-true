@@ -1,16 +1,71 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Movable : Minion
 {
 	[Export] PackedScene clickMarker;
 	[Export] PackedScene abilityOne;
 	private float _rayLength = 1000f;
+	public List<AbilityInfo> abilities = new List<AbilityInfo>();
 
-	public override void _UnhandledInput(InputEvent @event)
+	public override void _Ready()
 	{
-		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Right)
+		base._Ready();
+		abilities.Add(new AbilityInfo
 		{
+			name = "Fireball",
+			actionName = "ability_1",
+			cooldown = 2.0,
+			hitboxScene = abilityOne
+		});
+	}
+
+	public override void _Process(double delta)
+	{
+		base._Process(delta);
+		foreach (var ability in abilities)
+		{
+			ability.Update(delta);
+		}
+	}
+
+	public class AbilityInfo
+    {
+        public string name;
+		public string actionName;
+        public double cooldown;
+        public double sinceLastUse;
+        public PackedScene hitboxScene;
+        public bool onCooldown;
+		public bool canBuffer = true;
+		public bool buffered;
+
+        public void Update(double delta)
+        {
+            if (onCooldown)
+            {
+                sinceLastUse += delta;
+                if (sinceLastUse >= cooldown)
+                {
+                    onCooldown = false;
+                    sinceLastUse = 0;
+                }
+            }
+        }
+
+        public void Used()  
+        {
+            onCooldown = true;
+            sinceLastUse = 0;
+        }
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+        if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Right)
+		{
+			GD.Print("Right click detected");
 			TrySetDestination();
 			GetViewport().SetInputAsHandled();
 		}
@@ -19,15 +74,52 @@ public partial class Movable : Minion
 			ResetPathfind();
 			GetViewport().SetInputAsHandled();
 		}
+    }
 
-		if (@event.IsActionPressed("ability_1"))
+
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Right)
 		{
-			GD.Print("Ability 1 used");
-			var skillHitboxInstance = abilityOne.Instantiate<SkillHitbox>();
-			GetTree().CurrentScene.AddChild(skillHitboxInstance);
-			skillHitboxInstance.GlobalPosition = GetCurrentMousePos();
-			skillHitboxInstance.origin = this;
+			GD.Print("Right click detected");
+			TrySetDestination();
 			GetViewport().SetInputAsHandled();
+		}
+		else if (@event.IsActionPressed("stop"))
+		{
+			ResetPathfind();
+			GetViewport().SetInputAsHandled();
+		}
+		// buffer system
+		foreach (var ability in abilities)
+		{
+			if (@event.IsActionPressed(ability.actionName) && ability.onCooldown)
+			{
+				if (ability.canBuffer)
+				{
+					ability.buffered = true;
+					GetViewport().SetInputAsHandled();
+				}	
+			}
+			if (@event.IsActionReleased(ability.actionName) && ability.buffered)
+			{
+				ability.buffered = false;
+			}
+		}
+
+		foreach (var ability in abilities)
+		{
+			if ((@event.IsActionPressed(ability.actionName) && !ability.onCooldown) || ability.buffered && !ability.onCooldown)
+			{
+				ability.buffered = false;
+				GD.Print($"{ability.name} used");
+				var skillHitboxInstance = ability.hitboxScene.Instantiate<SkillHitbox>();
+				GetTree().CurrentScene.AddChild(skillHitboxInstance);
+				skillHitboxInstance.GlobalPosition = GetCurrentMousePos();
+				skillHitboxInstance.origin = this;
+				ability.Used();
+				GetViewport().SetInputAsHandled();
+			}
 		}
 	}
 

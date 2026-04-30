@@ -85,6 +85,7 @@ public partial class Minion : CharacterBody3D
     {
         if (_dead) return;
 
+        GD.Print($"Pathfinding to {targetPosition}");
         _finalTarget = targetPosition;
         _hasMoveTarget = true;
         

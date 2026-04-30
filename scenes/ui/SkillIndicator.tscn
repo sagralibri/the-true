@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://72xhvdt2p4kp"]
+
+[ext_resource type="Script" uid="uid://cr7eudv1uc660" path="res://scenes/ui/SkillIndicator.cs" id="1_5ghla"]
+[ext_resource type="Texture2D" uid="uid://ch8onbuut4bex" path="res://assets/images/HFfdyCQbEAAESuQ.jpg" id="2_d3dip"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vdy02"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cw5cd"]
+bg_color = Color(0.4509804, 0.4509804, 0.4509804, 0.54901963)
+
+[node name="Control" type="Control" unique_id=587424994 node_paths=PackedStringArray("timeLabel", "icon", "cooldownBar")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5ghla")
+timeLabel = NodePath("time")
+icon = NodePath("Sprite2D")
+cooldownBar = NodePath("ProgressBar")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218894403]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_d3dip")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1236754215]
+layout_mode = 0
+offset_left = -51.0
+offset_top = -51.0
+offset_right = 51.0
+offset_bottom = 51.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_vdy02")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cw5cd")
+value = 55.83
+show_percentage = false
+
+[node name="time" type="RichTextLabel" parent="." unique_id=375460900]
+layout_mode = 0
+offset_left = -51.0
+offset_top = -51.0
+offset_right = 51.0
+offset_bottom = 51.0
+theme_override_font_sizes/normal_font_size = 33
+text = "4s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="key" type="RichTextLabel" parent="." unique_id=999565625]
+layout_mode = 0
+offset_left = -51.0
+offset_top = 34.0
+offset_right = 51.0
+offset_bottom = 83.0
+theme_override_font_sizes/normal_font_size = 33
+text = "Q"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

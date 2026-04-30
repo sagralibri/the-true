@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dkqicbb1qy82r"]
+
+[node name="PlayerInfo" type="Control" unique_id=319144093]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1742449089]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 540.0
+offset_right = 139.0
+offset_bottom = 580.0
