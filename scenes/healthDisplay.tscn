@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cywp25gxnncq"]
+
+[ext_resource type="Script" uid="uid://c0pcmuod7padq" path="res://scenes/HealthDisplay.cs" id="1_67cyn"]
+
+[node name="HealthDisplay" type="Control" unique_id=1208736493 node_paths=PackedStringArray("nameLabel", "healthBar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_67cyn")
+nameLabel = NodePath("RichTextLabel")
+healthBar = NodePath("ProgressBar")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=890443701]
+layout_mode = 0
+offset_left = -53.0
+offset_top = -10.0
+offset_right = 53.050003
+offset_bottom = 11.0
+theme_override_font_sizes/normal_font_size = 13
+text = "Lorem Ipsum"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=959145362]
+modulate = Color(0.9308315, 0.2551366, 0.31527308, 1)
+layout_mode = 0
+offset_left = -39.0
+offset_top = 15.0
+offset_right = 41.0
+offset_bottom = 20.0
+value = 44.33
+show_percentage = false

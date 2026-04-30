@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://2gse5w7g6mh6"]
+
+[ext_resource type="Script" uid="uid://crilrnj01t07o" path="res://scenes/Suicidal.cs" id="1_hy4mp"]
+
+[node name="Marker" type="Node3D" unique_id=166522023 node_paths=PackedStringArray("tempLabel")]
+script = ExtResource("1_hy4mp")
+tempLabel = NodePath("Label3D")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1808638617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7983832, 0)
+text = "Clicked Here
+         |
+         v"

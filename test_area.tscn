@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cnhk1ef8bhfmb"]
 
 [ext_resource type="Script" uid="uid://c0flqrrm1nldl" path="res://GameRoom.cs" id="1_64fjj"]
+[ext_resource type="Script" uid="uid://daccnjfvo2nyb" path="res://scenes/Minion.cs" id="2_rfpkf"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_64fjj"]
-vertices = PackedVector3Array(-14.867, 0.4806025, -7.2396026, -14.867, 0.4806025, 7.2603974, 14.883, 0.4806025, 7.2603974, 14.883, 0.4806025, -7.2396026)
+vertices = PackedVector3Array(-142.80464, 0.4806025, -16.193586, -142.80464, 0.4806025, 16.306414, 142.69536, 0.4806025, 16.306414, 142.69536, 0.4806025, -16.193586)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 geometry_parsed_geometry_type = 1
 
@@ -15,6 +16,12 @@ albedo_color = Color(0.5309203, 0.70053566, 0.3582853, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rfpkf"]
 size = Vector3(2, 0.005, 1.995)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_64fjj"]
+height = 1.9677734
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rfpkf"]
+height = 2.824707
+
 [node name="Node3D" type="Node3D" unique_id=605950809 node_paths=PackedStringArray("startPoint")]
 script = ExtResource("1_64fjj")
 startPoint = NodePath("Marker3D")
@@ -24,7 +31,7 @@ transform = Transform3D(0.241521, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 navigation_mesh = SubResource("NavigationMesh_64fjj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D" unique_id=1864601602]
-transform = Transform3D(15.367, 0, 0, 0, 7.759, 0, 0, 0, 7.759, 0, 0, 0)
+transform = Transform3D(143.30464, 0, 0, 0, 7.759, 0, 0, 0, 16.735424, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_fw7ol")
 mesh = SubResource("PlaneMesh_64fjj")
 
@@ -37,3 +44,22 @@ shape = SubResource("BoxShape3D_rfpkf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1987814875]
 transform = Transform3D(1, 0, 0, 0, 0.41384363, 0.910348, 0, -0.910348, 0.41384363, 0, 12.325963, 0)
+
+[node name="dummy" type="CharacterBody3D" parent="." unique_id=133086151 node_paths=PackedStringArray("navigationAgent", "healthBarMarker")]
+script = ExtResource("2_rfpkf")
+name = "Target Dummy"
+navigationAgent = NodePath("NavigationAgent3D")
+healthBarMarker = NodePath("Marker3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="dummy" unique_id=1787564472]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8569336, -13.754429)
+mesh = SubResource("CylinderMesh_64fjj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dummy" unique_id=888842478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41235352, -13.764261)
+shape = SubResource("CylinderShape3D_rfpkf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="dummy" unique_id=1478456565]
+
+[node name="Marker3D" type="Marker3D" parent="dummy" unique_id=1467995967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5380974, -13.761234)
