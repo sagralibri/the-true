@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cs6m38qkepjo3"]
+
+[ext_resource type="Script" uid="uid://ej2sswse3103" path="res://scenes/skillhitboxes/SkillHitbox.cs" id="1_0ev40"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s8xbo"]
+height = 0.67614746
+radius = 0.72216797
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0ev40"]
+height = 0.67614746
+radius = 0.72216797
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_l5ryi"]
+height = 0.67614746
+radius = 0.72216797
+
+[node name="Slashhitbox" type="Node3D" unique_id=339918515 node_paths=PackedStringArray("area")]
+transform = Transform3D(1.565, 0, 0, 0, 1.565, 0, 0, 0, 1.565, 0, 0, 0)
+script = ExtResource("1_0ev40")
+area = NodePath("Area3D")
+damage = 20
+
+[node name="Area3D" type="Area3D" parent="." unique_id=704587545]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=220394545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33441162, -0.73402786)
+shape = SubResource("CylinderShape3D_s8xbo")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=1520689866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77906686, 0.33441162, -0.39492702)
+shape = SubResource("CylinderShape3D_0ev40")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Area3D" unique_id=1409461675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8546122, 0.33441162, -0.39492702)
+shape = SubResource("CylinderShape3D_l5ryi")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=960434398]
+transform = Transform3D(1, 0, 0, 0, 0.092444874, 0.9957178, 0, -0.9957178, 0.092444874, 0, 0.20322526, -0.51022774)
+text = "SLASH"
+font_size = 61
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=1385051235]
+transform = Transform3D(1, 0, 0, 0, 0.092444874, 0.9957178, 0, -0.9957178, 0.092444874, -0.8766135, 0.20322526, -0.16908872)
+text = "SLASH"
+font_size = 61
+
+[node name="Label3D3" type="Label3D" parent="." unique_id=919281444]
+transform = Transform3D(1, 0, 0, 0, 0.092444874, 0.9957178, 0, -0.9957178, 0.092444874, 0.95068467, 0.20322526, -0.16908872)
+text = "SLASH"
+font_size = 61
+
+[node name="Label3D4" type="Label3D" parent="." unique_id=1424124014]
+transform = Transform3D(1, 0, 0, 0, 0.092444874, 0.9957178, 0, -0.9957178, 0.092444874, 0.95068467, 0.20322526, -0.708169)
+text = "SLASH"
+font_size = 61
+
+[node name="Label3D5" type="Label3D" parent="." unique_id=1967591983]
+transform = Transform3D(1, 0, 0, 0, 0.092444874, 0.9957178, 0, -0.9957178, 0.092444874, 0.008096635, 0.20322526, -1.0449936)
+text = "SLASH"
+font_size = 61
+
+[node name="Label3D6" type="Label3D" parent="." unique_id=1358991394]
+transform = Transform3D(1, 0, 0, 0, 0.092444874, 0.9957178, 0, -0.9957178, 0.092444874, -0.9196146, 0.20322526, -0.66708124)
+text = "SLASH"
+font_size = 61

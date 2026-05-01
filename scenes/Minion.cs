@@ -1,4 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
 using Godot;
 
 public partial class Minion : CharacterBody3D
@@ -12,8 +11,8 @@ public partial class Minion : CharacterBody3D
     [Export] public Marker3D healthBarMarker;
     [Export] string healthBarPath = "res://scenes/healthDisplay.tscn";
     private bool _dead = false;
-    private Vector3 _finalTarget;
-    private bool _hasMoveTarget = false;
+    protected Vector3 _finalTarget;
+    protected bool _hasMoveTarget = false;
     private HealthDisplay _healthDisplay;
 
     public override void _Ready()
@@ -25,6 +24,17 @@ public partial class Minion : CharacterBody3D
         healthBarInstance.Initialize(this);
         _healthDisplay = healthBarInstance;
         _healthDisplay.MouseFilter = Control.MouseFilterEnum.Ignore;
+    }
+
+    // temporary
+
+    public override void _Input(InputEvent @event)
+    {
+        if (@event is InputEventKey keyEvent && keyEvent.Pressed && keyEvent.Keycode == Key.F)
+        {
+            PathfindTo(GameManager.Instance.player.GlobalPosition);
+            GD.Print("Pathfinding to player at position: " + GameManager.Instance.player.GlobalPosition);
+        }
     }
 
     public override void _Process(double delta)
@@ -85,7 +95,6 @@ public partial class Minion : CharacterBody3D
     {
         if (_dead) return;
 
-        GD.Print($"Pathfinding to {targetPosition}");
         _finalTarget = targetPosition;
         _hasMoveTarget = true;
         

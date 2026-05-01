@@ -18,10 +18,13 @@ public partial class GameRoom : Node3D
         var uiScene = GD.Load<PackedScene>(uiPath);
         var uiInstance = uiScene.Instantiate<Control>();
         GetTree().CurrentScene.AddChild(uiInstance);
-        var container = uiInstance.GetNode<HBoxContainer>("HBoxContainer");
-        var abilityScene = GD.Load<PackedScene>(abilityPath);
-        var abilityInstance = abilityScene.Instantiate<SkillIndicator>();
-        container.AddChild(abilityInstance);
-        abilityInstance.Initialize(characterInstance.abilities[0]);
+        foreach (var ability in characterInstance.abilities)
+        {
+            var container = uiInstance.GetNode<HBoxContainer>("HBoxContainer");
+            var abilityScene = GD.Load<PackedScene>(abilityPath);
+            var abilityInstance = abilityScene.Instantiate<SkillIndicator>();
+            container.AddChild(abilityInstance);
+            abilityInstance.Initialize(ability);
+        }
     }
 }

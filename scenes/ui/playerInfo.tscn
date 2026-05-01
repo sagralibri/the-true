@@ -14,3 +14,4 @@ offset_left = 99.0
 offset_top = 540.0
 offset_right = 139.0
 offset_bottom = 580.0
+theme_override_constants/separation = 140

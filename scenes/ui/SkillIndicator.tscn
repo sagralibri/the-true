@@ -1,20 +1,25 @@
 [gd_scene format=3 uid="uid://72xhvdt2p4kp"]
 
 [ext_resource type="Script" uid="uid://cr7eudv1uc660" path="res://scenes/ui/SkillIndicator.cs" id="1_5ghla"]
+[ext_resource type="Texture2D" uid="uid://bd7wpqyghr077" path="res://assets/images/Screenshot 2026-04-30 230021.png" id="2_0e78t"]
 [ext_resource type="Texture2D" uid="uid://ch8onbuut4bex" path="res://assets/images/HFfdyCQbEAAESuQ.jpg" id="2_d3dip"]
+[ext_resource type="Texture2D" uid="uid://vkqitnvf5su0" path="res://assets/images/Screenshot 2026-05-01 000256.png" id="3_0e78t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vdy02"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cw5cd"]
 bg_color = Color(0.4509804, 0.4509804, 0.4509804, 0.54901963)
 
-[node name="Control" type="Control" unique_id=587424994 node_paths=PackedStringArray("timeLabel", "icon", "cooldownBar")]
+[node name="Control" type="Control" unique_id=587424994 node_paths=PackedStringArray("timeLabel", "icon", "cooldownBar", "inputLabel")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_5ghla")
 timeLabel = NodePath("time")
 icon = NodePath("Sprite2D")
 cooldownBar = NodePath("ProgressBar")
+slashIcon = ExtResource("2_0e78t")
+dashIcon = ExtResource("3_0e78t")
+inputLabel = NodePath("key")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1218894403]
 scale = Vector2(0.15, 0.15)

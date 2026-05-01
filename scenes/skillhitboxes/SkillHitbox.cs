@@ -8,6 +8,7 @@ public partial class SkillHitbox : Node3D
     [Export] public int damage = 10;
     [Export] public float lifetime = 0.5f;
     public Minion origin;
+    private bool _followingOrigin = false;
 
     private readonly HashSet<Node> _alreadyHit = new();
 
@@ -19,6 +20,19 @@ public partial class SkillHitbox : Node3D
         {
             if (IsInstanceValid(this)) QueueFree();
         };
+    }
+
+    public override void _Process(double delta)
+    {
+        if (_followingOrigin && IsInstanceValid(origin))
+        {
+            GlobalPosition = origin.GlobalPosition;
+        }
+    }
+
+    public void FollowOriginPos()
+    {
+        _followingOrigin = true;
     }
 
     private void OnBodyEntered(Node body)

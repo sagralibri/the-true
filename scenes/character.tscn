@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://deniuyy3jps3x" path="res://scenes/Movable.cs" id="1_agfs1"]
 [ext_resource type="PackedScene" uid="uid://2gse5w7g6mh6" path="res://scenes/marker.tscn" id="2_rkhd4"]
 [ext_resource type="PackedScene" uid="uid://didceu31s7ost" path="res://scenes/skillhitboxes/circlehitbox.tscn" id="3_lrhn5"]
+[ext_resource type="PackedScene" uid="uid://cs6m38qkepjo3" path="res://scenes/skillhitboxes/slashhitbox.tscn" id="4_my7n2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vu45j"]
 
@@ -13,6 +14,7 @@ transform = Transform3D(0.305, 0, 0, 0, 0.305, 0, 0, 0, 0.305, 0, 0, 0)
 script = ExtResource("1_agfs1")
 clickMarker = ExtResource("2_rkhd4")
 abilityOne = ExtResource("3_lrhn5")
+abilityTwo = ExtResource("4_my7n2")
 name = "You"
 navigationAgent = NodePath("NavigationAgent3D")
 side = 0
