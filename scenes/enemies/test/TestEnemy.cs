@@ -1,9 +1,11 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class TestEnemy : Minion
 {
     [Export] public float aggroRange = 15f;
+    [Export] public PackedScene attackHitbox;
     private bool _isAttacking = false;
     
     
@@ -32,5 +34,26 @@ public partial class TestEnemy : Minion
         {
             ResetPathfind();
         }
+
+        if (_isAttacking && distanceToPlayer <= 2f && _canMove)
+        {
+            _isAttacking = false;
+            _ = Attack();
+        }
+    }
+
+    public async Task Attack()
+    {
+        if (GameManager.Instance.player == null) return;
+        _canMove = false;
+        Vector3 cachePlayerPos = GameManager.Instance.player.GlobalPosition;
+        await ToSignal(GetTree().CreateTimer(1f), "timeout");
+        _canMove = true;
+        var attack = attackHitbox.Instantiate<SkillHitbox>();
+        AddChild(attack);
+        attack.LookAt(cachePlayerPos);
+        attack.GlobalPosition = GlobalPosition;
+        attack.origin = this;
+
     }
 }

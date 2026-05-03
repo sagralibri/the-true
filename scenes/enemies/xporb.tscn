@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://d3b05atqf6hxk"]
+
+[ext_resource type="Script" uid="uid://lyfcjqaci6bi" path="res://scenes/enemies/XpOrb.cs" id="1_nocxc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cc0j2"]
+radius = 0.25
+
+[node name="Xporb" type="Node3D" unique_id=257037095 node_paths=PackedStringArray("pickupArea")]
+script = ExtResource("1_nocxc")
+pickupArea = NodePath("Area3D")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=50445548]
+transform = Transform3D(1, 0, 0, 0, 0.87004286, 0.4929761, 0, -0.4929761, 0.87004286, 0, 0.18718708, 0)
+shaded = true
+modulate = Color(0.25882354, 1, 0.39607844, 1)
+outline_modulate = Color(0.6156863, 0.7176471, 0, 1)
+text = "xp"
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2076477310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13757315, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1745277570]
+shape = SubResource("SphereShape3D_cc0j2")

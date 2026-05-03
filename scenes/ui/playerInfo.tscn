@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://dkqicbb1qy82r"]
 
-[node name="PlayerInfo" type="Control" unique_id=319144093]
+[ext_resource type="Script" uid="uid://davj5m7pxrgta" path="res://scenes/ui/PlayerInfo.cs" id="1_wg6n6"]
+
+[node name="PlayerInfo" type="Control" unique_id=319144093 node_paths=PackedStringArray("xp", "levelLabel", "xpBar")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wg6n6")
+xp = NodePath("Control")
+levelLabel = NodePath("Control/RichTextLabel")
+xpBar = NodePath("Control/ProgressBar")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1742449089]
 layout_mode = 0
@@ -15,3 +21,23 @@ offset_top = 540.0
 offset_right = 139.0
 offset_bottom = 580.0
 theme_override_constants/separation = 140
+
+[node name="Control" type="Control" parent="." unique_id=1269545599]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=993442138]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 35.0
+offset_right = 434.0
+offset_bottom = 62.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=17734035]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 5.0
+offset_right = 188.0
+offset_bottom = 45.0
+text = "Level 999"

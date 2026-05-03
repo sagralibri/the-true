@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://be4rx53vqn6j6"]
+
+[ext_resource type="Script" uid="uid://bhkainoipuko6" path="res://scenes/skillhitboxes/DelayedHitbox.cs" id="1_vv1r6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vv1r6"]
+radius = 2.071804
+
+[sub_resource type="PrismMesh" id="PrismMesh_vv1r6"]
+
+[node name="Shockwave" type="Node3D" unique_id=2118053702 node_paths=PackedStringArray("warningNode", "hitNode", "area")]
+transform = Transform3D(5.965, 0, 0, 0, 5.965, 0, 0, 0, 5.965, 0, 0, 0)
+script = ExtResource("1_vv1r6")
+delay = 1.25
+warningNode = NodePath("warning")
+hitNode = NodePath("hit")
+callAttackEnd = true
+area = NodePath("hit/Area3D")
+damage = 35
+hitStop = true
+
+[node name="warning" type="Node3D" parent="." unique_id=1617287628]
+
+[node name="Label3D" type="Label3D" parent="warning" unique_id=1091333120]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.3044119, 0)
+text = "WARNING"
+font_size = 138
+
+[node name="Label3D3" type="Label3D" parent="warning" unique_id=152869246]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.3044119, 0.81220585)
+text = "WARNING"
+font_size = 94
+
+[node name="Label3D5" type="Label3D" parent="warning" unique_id=768978693]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.3044119, -0.83203703)
+text = "WARNING"
+font_size = 94
+
+[node name="Label3D4" type="Label3D" parent="warning" unique_id=1344861161]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.3044119, 1.5557511)
+text = "WARNING"
+font_size = 71
+
+[node name="Label3D6" type="Label3D" parent="warning" unique_id=2473548]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.3044119, -1.4277766)
+text = "WARNING"
+font_size = 71
+
+[node name="hit" type="Node3D" parent="." unique_id=710868411]
+
+[node name="Area3D" type="Area3D" parent="hit" unique_id=131764640]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hit/Area3D" unique_id=1658566032]
+shape = SubResource("SphereShape3D_vv1r6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hit" unique_id=2091497162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4575052, 0, 0)
+mesh = SubResource("PrismMesh_vv1r6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="hit" unique_id=23841055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110066414, 0, 1.4685619)
+mesh = SubResource("PrismMesh_vv1r6")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="hit" unique_id=1618900052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6088762, 0, 0.017158747)
+mesh = SubResource("PrismMesh_vv1r6")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="hit" unique_id=704536881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09766412, 0, -1.4123039)
+mesh = SubResource("PrismMesh_vv1r6")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="hit" unique_id=1221300199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.928573, 0, -0.8387549)
+mesh = SubResource("PrismMesh_vv1r6")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="hit" unique_id=229895072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9634985, 0, -0.8387549)
+mesh = SubResource("PrismMesh_vv1r6")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="hit" unique_id=743437784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9634985, 0, 1.0089788)
+mesh = SubResource("PrismMesh_vv1r6")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="hit" unique_id=1418437413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.69643474, 0, 1.0089788)
+mesh = SubResource("PrismMesh_vv1r6")

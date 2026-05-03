@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://du0x0o14ogx2u"]
+
+[ext_resource type="Script" uid="uid://bw3wh3b4ysu5w" path="res://scenes/enemies/test/TestBoss.cs" id="1_8se8s"]
+[ext_resource type="PackedScene" uid="uid://dy84o2x81ihih" path="res://scenes/skillhitboxes/fissure.tscn" id="2_3t5ma"]
+[ext_resource type="PackedScene" uid="uid://be4rx53vqn6j6" path="res://scenes/skillhitboxes/shockwave.tscn" id="2_sg42b"]
+[ext_resource type="PackedScene" uid="uid://ccnf1eii0os1s" path="res://scenes/skillhitboxes/charge.tscn" id="2_xnge7"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8se8s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8se8s"]
+
+[node name="Testboss" type="CharacterBody3D" unique_id=1869277462 node_paths=PackedStringArray("navigationAgent", "healthBarMarker")]
+script = ExtResource("1_8se8s")
+shockwaveHitbox = ExtResource("2_sg42b")
+chargeHitbox = ExtResource("2_xnge7")
+fissureHitbox = ExtResource("2_3t5ma")
+name = "The Boss"
+health = 200
+navigationAgent = NodePath("NavigationAgent3D")
+side = 1
+healthBarMarker = NodePath("Marker3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1569467614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9882834, 0)
+mesh = SubResource("CapsuleMesh_8se8s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=346265115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95594263, 0)
+shape = SubResource("CapsuleShape3D_8se8s")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=256094352]
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1628100284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1274233, 0)

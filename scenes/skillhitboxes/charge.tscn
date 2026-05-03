@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://ccnf1eii0os1s"]
+
+[ext_resource type="Script" uid="uid://bhkainoipuko6" path="res://scenes/skillhitboxes/DelayedHitbox.cs" id="1_u86jf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u86jf"]
+size = Vector3(1, 2.0649414, 1.0751343)
+
+[node name="Charge" type="Node3D" unique_id=1717716309 node_paths=PackedStringArray("warningNode", "hitNode", "area")]
+script = ExtResource("1_u86jf")
+warningNode = NodePath("warning")
+hitNode = NodePath("hitbox")
+area = NodePath("hitbox/Area3D")
+damage = 30
+lifetime = 5.0
+hitStop = true
+
+[node name="warning" type="Node3D" parent="." unique_id=1859681556]
+
+[node name="Label3D" type="Label3D" parent="warning" unique_id=764558992]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 0.20209312, -0.28842282)
+text = "!!!!!!!!!!!!!!"
+
+[node name="Label3D2" type="Label3D" parent="warning" unique_id=86510621]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 0.20209312, -0.57438546)
+text = "!!!!!!!!!!!!!!"
+
+[node name="Label3D3" type="Label3D" parent="warning" unique_id=2091197272]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 0.20209312, -0.93347883)
+text = "!!!!!!!!!!!!!!"
+
+[node name="Label3D4" type="Label3D" parent="warning" unique_id=171706708]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 0.20209312, -1.3155131)
+text = "!!!!!!!!!!!!!!"
+
+[node name="Label3D5" type="Label3D" parent="warning" unique_id=928352511]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 0.20209312, -1.659194)
+text = "!!!!!!!!!!!!!!"
+
+[node name="Label3D6" type="Label3D" parent="warning" unique_id=693780728]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 0.20209312, -1.9451566)
+text = "!!!!!!!!!!!!!!"
+
+[node name="Label3D7" type="Label3D" parent="warning" unique_id=1806537058]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 0.20209312, -2.30425)
+text = "!!!!!!!!!!!!!!"
+
+[node name="Label3D8" type="Label3D" parent="warning" unique_id=1630020108]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 0.20209312, -2.6862843)
+text = "!!!!!!!!!!!!!!"
+
+[node name="Label3D9" type="Label3D" parent="warning" unique_id=1127395003]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 0.20209312, -3.0704803)
+text = "!!!!!!!!!!!!!!"
+
+[node name="Label3D10" type="Label3D" parent="warning" unique_id=82428373]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 0.20209312, -3.356443)
+text = "!!!!!!!!!!!!!!"
+
+[node name="Label3D11" type="Label3D" parent="warning" unique_id=75245823]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 0.20209312, -3.7155364)
+text = "!!!!!!!!!!!!!!"
+
+[node name="Label3D12" type="Label3D" parent="warning" unique_id=1686847294]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 0.20209312, -4.0975704)
+text = "!!!!!!!!!!!!!!"
+
+[node name="hitbox" type="Node3D" parent="." unique_id=1011365565]
+
+[node name="Area3D" type="Area3D" parent="hitbox" unique_id=1168727279]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox/Area3D" unique_id=1763455052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5324707, 0.17831421)
+shape = SubResource("BoxShape3D_u86jf")

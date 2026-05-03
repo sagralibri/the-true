@@ -30,6 +30,7 @@ shape = SubResource("CapsuleShape3D_glpr6")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1232424856]
 transform = Transform3D(3.2786887, 0, 0, 0, 1.5759155, 2.8751159, 0, -2.8751159, 1.5759155, 0.11522676, 8.319497, 5.7147665)
+current = true
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=378040933]
 path_desired_distance = 0.5

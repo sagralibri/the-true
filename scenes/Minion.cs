@@ -10,9 +10,11 @@ public partial class Minion : CharacterBody3D
     [Export] public Side side = Side.Neutral;
     [Export] public Marker3D healthBarMarker;
     [Export] string healthBarPath = "res://scenes/healthDisplay.tscn";
+    [Export] public bool showHealthBar = true;
     private bool _dead = false;
     protected Vector3 _finalTarget;
     protected bool _hasMoveTarget = false;
+    protected bool _canMove = true;
     private HealthDisplay _healthDisplay;
 
     public override void _Ready()
@@ -24,6 +26,7 @@ public partial class Minion : CharacterBody3D
         healthBarInstance.Initialize(this);
         _healthDisplay = healthBarInstance;
         _healthDisplay.MouseFilter = Control.MouseFilterEnum.Ignore;
+        _healthDisplay.Visible = showHealthBar;
     }
 
     // temporary
@@ -44,7 +47,7 @@ public partial class Minion : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
     {
-        if (_dead || !_hasMoveTarget) return;
+        if (_dead || !_hasMoveTarget || !_canMove) return;
 
         Vector3 destination = navigationAgent.IsNavigationFinished()
             ? _finalTarget
@@ -79,7 +82,13 @@ public partial class Minion : CharacterBody3D
     public void Die()
     {
         _dead = true;
-        if (IsInstanceValid(this)) QueueFree();
+
+        if (!IsInstanceValid(this)) return;
+
+        var xpDropper = GetNodeOrNull<XpDropper>("XpDropper");
+        xpDropper?.DropXp(GlobalPosition);
+
+        QueueFree();
     }
 
     public void ModifyHealth(int amount)
@@ -94,6 +103,7 @@ public partial class Minion : CharacterBody3D
     public void PathfindTo(Vector3 targetPosition)
     {
         if (_dead) return;
+        if (!_canMove) return;
 
         _finalTarget = targetPosition;
         _hasMoveTarget = true;
