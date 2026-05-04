@@ -209,6 +209,7 @@ public partial class Movable : Minion
 						// get angle to mouse position and set rotation of hitbox accordingly
 						skillHitboxInstance.GlobalPosition = this.GlobalPosition;
 						skillHitboxInstance.LookAt(GetCurrentMousePos(), Vector3.Up);
+						skillHitboxInstance.Rotation = new Vector3(0, skillHitboxInstance.Rotation.Y, 0);
 						skillHitboxInstance.FollowOriginPos();
 						break;
 				}

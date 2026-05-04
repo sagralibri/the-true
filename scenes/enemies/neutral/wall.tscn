@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://c602fs2vqrebl"]
+
+[ext_resource type="Script" uid="uid://daccnjfvo2nyb" path="res://scenes/Minion.cs" id="1_e87do"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6q4t8"]
+size = Vector3(9.901123, 4.854492, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_6q4t8"]
+size = Vector3(1.695, 4.865, 0.845)
+
+[node name="wall" type="CharacterBody3D" unique_id=1677347958 node_paths=PackedStringArray("navigationAgent", "healthBarMarker")]
+script = ExtResource("1_e87do")
+name = "Wall"
+health = 50
+navigationAgent = NodePath("NavigationAgent3D")
+healthBarMarker = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1728374225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01184082, 1.9272461, 0)
+shape = SubResource("BoxShape3D_6q4t8")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1882738043]
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=2024527056]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=354896509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9091125, 2.2402124, 0)
+mesh = SubResource("PrismMesh_6q4t8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=162008285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2601113, 2.2402124, 0)
+mesh = SubResource("PrismMesh_6q4t8")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=891060510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6112907, 2.2402124, 0)
+mesh = SubResource("PrismMesh_6q4t8")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=811494873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1084099, 2.2402124, 0)
+mesh = SubResource("PrismMesh_6q4t8")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1261766397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7060637, 2.2402124, 0)
+mesh = SubResource("PrismMesh_6q4t8")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=1664184936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3119006, 2.2402124, 0)
+mesh = SubResource("PrismMesh_6q4t8")

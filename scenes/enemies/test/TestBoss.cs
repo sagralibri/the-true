@@ -7,6 +7,7 @@ public static class BossEvents
     public static Action attackEnd;
 }
 
+
 public partial class TestBoss : Minion
 {
     public Vector3 arenaCenter;
@@ -21,6 +22,12 @@ public partial class TestBoss : Minion
 
         FissureAttack();
     }
+
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+    }
+
 
     public async Task ShockwaveAttack()
     {

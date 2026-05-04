@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bhkainoipuko6" path="res://scenes/skillhitboxes/DelayedHitbox.cs" id="1_vv1r6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vv1r6"]
-radius = 2.071804
+radius = 1.6365525
 
 [sub_resource type="PrismMesh" id="PrismMesh_vv1r6"]
 

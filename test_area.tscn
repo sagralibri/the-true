@@ -7,22 +7,21 @@
 [ext_resource type="Script" uid="uid://b41qo8lj50iek" path="res://BossTrigger.cs" id="5_vt2yd"]
 [ext_resource type="PackedScene" uid="uid://du0x0o14ogx2u" path="res://scenes/enemies/test/testboss.tscn" id="6_xdpsd"]
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_od0h0"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_6ii2q"]
 vertices = PackedVector3Array(117.38902, 0.4806025, 2.5155811, 117.38902, 0.4806025, -1.7344189, 115.38902, 0.4806025, -1.9844189, 115.38902, 0.4806025, 2.7655811, 73.38902, 0.4806025, -10.734419, 73.38902, 0.4806025, 11.265581, 115.38902, 0.4806025, 11.265581, 115.38902, 0.4806025, -10.734419, 134.63902, 0.4806025, 2.5155811, 134.63902, 0.4806025, -1.7344189)
 polygons = [PackedInt32Array(0, 3, 1), PackedInt32Array(1, 3, 2), PackedInt32Array(3, 5, 2), PackedInt32Array(2, 5, 4), PackedInt32Array(3, 6, 5), PackedInt32Array(4, 7, 2), PackedInt32Array(1, 9, 0), PackedInt32Array(0, 9, 8)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fw7ol"]
-albedo_color = Color(0.5309203, 0.70053566, 0.3582853, 1)
+albedo_color = Color(0.31342095, 0.7346547, 0.52528137, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_64fjj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rfpkf"]
 size = Vector3(2, 0.005, 1.995)
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_64fjj"]
-vertices = PackedVector3Array(36.69536, 0.4806025, -37.58014, 36.69536, 0.4806025, -58.08014, -56.05464, 0.4806025, -58.08014, -56.05464, 0.4806025, -37.58014, 38.94536, 0.4806025, -37.33014, 90.19536, 0.4806025, -37.33014, 92.44536, 0.4806025, -37.58014, 92.44536, 0.4806025, -58.08014, 38.94536, 0.4806025, -18.33014, 90.19536, 0.4806025, -18.33014, 185.19536, 0.4806025, -45.08014, 187.44536, 0.4806025, -45.33014, 187.44536, 0.4806025, -50.33014, 185.19536, 0.4806025, -50.58014, 185.19536, 0.4806025, -58.08014, 185.19536, 0.4806025, -37.58014, 266.19537, 0.4806025, -45.33014, 266.19537, 0.4806025, -50.33014, 268.44537, 0.4806025, -45.08014, 300.44537, 0.4806025, -50.33014, 268.44537, 0.4806025, -25.08014, 300.19537, 0.4806025, -25.08014, 301.94537, 0.4806025, -24.83014, 301.94537, 0.4806025, -23.08014, 319.19537, 0.4806025, -23.08014, 319.19537, 0.4806025, -24.83014, 320.94537, 0.4806025, -25.08014, 320.69537, 0.4806025, -50.33014, 352.94537, 0.4806025, -25.08014, 352.94537, 0.4806025, -50.33014, 301.94537, 0.4806025, -11.580139, 319.19537, 0.4806025, -11.580139, 38.69536, 0.4806025, -16.33014, 36.69536, 0.4806025, -16.33014, 36.69536, 0.4806025, 16.16986, 92.44536, 0.4806025, 16.16986, 92.44536, 0.4806025, -16.33014, 90.44536, 0.4806025, -16.33014, -142.80464, 0.4806025, -16.33014, -142.80464, 0.4806025, 16.16986, 142.94536, 0.4806025, 16.16986, 142.94536, 0.4806025, -16.33014, 559.1954, 0.4806025, -14.580139, 559.1954, 0.4806025, 15.169861, 676.6954, 0.4806025, 15.169861, 676.6954, 0.4806025, -14.580139)
+[sub_resource type="NavigationMesh" id="NavigationMesh_xdpsd"]
+vertices = PackedVector3Array(37.19536, 0.4806025, -37.357033, 37.44536, 0.4806025, -58.107033, -56.05464, 0.4806025, -58.107033, -56.05464, 0.4806025, -37.357033, 38.94536, 0.4806025, -37.107033, 90.19536, 0.4806025, -37.107033, 91.94536, 0.4806025, -37.357033, 91.69536, 0.4806025, -58.107033, 38.94536, 0.4806025, -18.357033, 90.19536, 0.4806025, -18.357033, 185.19536, 0.4806025, -45.107033, 187.44536, 0.4806025, -45.357033, 187.44536, 0.4806025, -50.357033, 185.19536, 0.4806025, -50.607033, 185.19536, 0.4806025, -58.107033, 185.19536, 0.4806025, -37.357033, 266.19537, 0.4806025, -45.357033, 266.19537, 0.4806025, -50.357033, 268.44537, 0.4806025, -45.107033, 300.44537, 0.4806025, -50.357033, 268.44537, 0.4806025, -25.107033, 300.19537, 0.4806025, -25.107033, 301.94537, 0.4806025, -24.857033, 301.94537, 0.4806025, -23.107033, 319.19537, 0.4806025, -23.107033, 319.19537, 0.4806025, -24.857033, 320.94537, 0.4806025, -25.107033, 320.69537, 0.4806025, -50.357033, 352.94537, 0.4806025, -25.107033, 352.94537, 0.4806025, -50.357033, 301.94537, 0.4806025, -11.357033, 319.19537, 0.4806025, -11.357033, 38.69536, 0.4806025, -16.357033, 36.69536, 0.4806025, -16.357033, 36.69536, 0.4806025, 16.142967, 92.44536, 0.4806025, 16.142967, 92.44536, 0.4806025, -16.357033, 90.44536, 0.4806025, -16.357033, -142.80464, 0.4806025, -16.357033, -142.80464, 0.4806025, 16.142967, 142.94536, 0.4806025, 16.142967, 142.94536, 0.4806025, -16.357033, 559.1954, 0.4806025, -14.607033, 559.1954, 0.4806025, 15.142967, 676.6954, 0.4806025, 15.142967, 676.6954, 0.4806025, -14.607033)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(0, 1, 4), PackedInt32Array(4, 1, 5), PackedInt32Array(5, 1, 6), PackedInt32Array(6, 1, 7), PackedInt32Array(5, 9, 4), PackedInt32Array(4, 9, 8), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(13, 10, 6), PackedInt32Array(13, 6, 7), PackedInt32Array(7, 14, 13), PackedInt32Array(10, 15, 6), PackedInt32Array(12, 17, 11), PackedInt32Array(11, 17, 16), PackedInt32Array(16, 17, 18), PackedInt32Array(18, 17, 19), PackedInt32Array(20, 18, 21), PackedInt32Array(21, 18, 19), PackedInt32Array(25, 24, 22), PackedInt32Array(22, 24, 23), PackedInt32Array(22, 21, 25), PackedInt32Array(25, 21, 26), PackedInt32Array(26, 21, 19), PackedInt32Array(26, 19, 27), PackedInt32Array(28, 26, 29), PackedInt32Array(29, 26, 27), PackedInt32Array(31, 30, 24), PackedInt32Array(24, 30, 23), PackedInt32Array(34, 33, 32), PackedInt32Array(37, 36, 35), PackedInt32Array(37, 35, 9), PackedInt32Array(9, 35, 8), PackedInt32Array(8, 35, 32), PackedInt32Array(32, 35, 34), PackedInt32Array(39, 38, 34), PackedInt32Array(34, 38, 33), PackedInt32Array(36, 41, 35), PackedInt32Array(35, 41, 40), PackedInt32Array(45, 44, 42), PackedInt32Array(42, 44, 43)]
-geometry_parsed_geometry_type = 1
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_64fjj"]
 height = 1.9677734
@@ -41,7 +40,7 @@ script = ExtResource("1_64fjj")
 startPoint = NodePath("Marker3D")
 
 [node name="boss go away" type="NavigationRegion3D" parent="." unique_id=81409350]
-navigation_mesh = SubResource("NavigationMesh_od0h0")
+navigation_mesh = SubResource("NavigationMesh_6ii2q")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="boss go away" unique_id=1289194886]
 transform = Transform3D(21.414501, 0, 0, 0, 7.759, 0, 0, 0, 11.548193, 94.30353, 0, 0.3137741)
@@ -65,7 +64,7 @@ shape = SubResource("BoxShape3D_rfpkf")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1667920126]
 transform = Transform3D(0.241521, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-navigation_mesh = SubResource("NavigationMesh_64fjj")
+navigation_mesh = SubResource("NavigationMesh_xdpsd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D" unique_id=1864601602]
 transform = Transform3D(143.30464, 0, 0, 0, 7.759, 0, 0, 0, 16.735424, 0, 0, 0)

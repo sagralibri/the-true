@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://bcl2okwuhv86"]
+
+[ext_resource type="Script" uid="uid://bhkainoipuko6" path="res://scenes/skillhitboxes/DelayedHitbox.cs" id="1_csg1g"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_csg1g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csg1g"]
+albedo_color = Color(1, 1, 0.3019608, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1mwat"]
+size = Vector3(0.3007202, 1.8071289, 0.2904663)
+
+[node name="Lightning" type="Node3D" unique_id=834839296 node_paths=PackedStringArray("warningNode", "hitNode", "area")]
+script = ExtResource("1_csg1g")
+warningNode = NodePath("warning")
+hitNode = NodePath("hit")
+area = NodePath("hit/Area3D")
+damage = 20
+lifetime = 0.2
+hitStop = true
+
+[node name="warning" type="Node3D" parent="." unique_id=60280691]
+
+[node name="Label3D" type="Label3D" parent="warning" unique_id=112817028]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.103999496, 0)
+text = "WARNING"
+font_size = 45
+
+[node name="Label3D2" type="Label3D" parent="warning" unique_id=455160897]
+transform = Transform3D(0.645, 0, 0, 0, -2.8193845e-08, 0.645, 0, -0.645, -2.8193845e-08, 0, 0.103999496, -0.29520047)
+text = "WARNING"
+font_size = 45
+
+[node name="Label3D3" type="Label3D" parent="warning" unique_id=47741553]
+transform = Transform3D(0.645, 0, 0, 0, -2.8193845e-08, 0.645, 0, -0.645, -2.8193845e-08, 0, 0.103999496, 0.3350557)
+text = "WARNING"
+font_size = 45
+
+[node name="hit" type="Node3D" parent="." unique_id=949127061]
+
+[node name="Area3D" type="Area3D" parent="hit" unique_id=373688993]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hit/Area3D" unique_id=1476631811]
+shape = SubResource("SphereShape3D_csg1g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hit" unique_id=480848305]
+transform = Transform3D(0.9515319, 0.30755, 0, -0.30755, 0.9515319, 0, 0, 0, 1, 0.14239168, 0.7380017, -0.056019187)
+material_override = SubResource("StandardMaterial3D_csg1g")
+mesh = SubResource("BoxMesh_1mwat")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="hit" unique_id=1165296533]
+transform = Transform3D(0.93600446, -0.35198796, 0, 0.35198796, 0.93600446, 0, 0, 0, 1, 0.097753406, 2.3284023, -0.056019187)
+material_override = SubResource("StandardMaterial3D_csg1g")
+mesh = SubResource("BoxMesh_1mwat")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="hit" unique_id=899130821]
+transform = Transform3D(0.9515319, 0.30755, 0, -0.30755, 0.9515319, 0, 0, 0, 1, 0.05367446, 3.8699212, -0.056019187)
+material_override = SubResource("StandardMaterial3D_csg1g")
+mesh = SubResource("BoxMesh_1mwat")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="hit" unique_id=225189289]
+transform = Transform3D(0.93600446, -0.35198796, 0, 0.35198796, 0.93600446, 0, 0, 0, 1, 0.009036183, 5.460322, -0.056019187)
+material_override = SubResource("StandardMaterial3D_csg1g")
+mesh = SubResource("BoxMesh_1mwat")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="hit" unique_id=286711596]
+transform = Transform3D(0.9515319, 0.30755, 0, -0.30755, 0.9515319, 0, 0, 0, 1, -0.10353303, 7.1135564, -0.056019187)
+material_override = SubResource("StandardMaterial3D_csg1g")
+mesh = SubResource("BoxMesh_1mwat")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="hit" unique_id=1359966815]
+transform = Transform3D(0.93600446, -0.35198796, 0, 0.35198796, 0.93600446, 0, 0, 0, 1, -0.1481713, 8.703957, -0.056019187)
+material_override = SubResource("StandardMaterial3D_csg1g")
+mesh = SubResource("BoxMesh_1mwat")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="hit" unique_id=1278163001]
+transform = Transform3D(0.9515319, 0.30755, 0, -0.30755, 0.9515319, 0, 0, 0, 1, -0.23166299, 10.225548, -0.056019187)
+material_override = SubResource("StandardMaterial3D_csg1g")
+mesh = SubResource("BoxMesh_1mwat")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="hit" unique_id=381053253]
+transform = Transform3D(0.93600446, -0.35198796, 0, 0.35198796, 0.93600446, 0, 0, 0, 1, -0.27630126, 11.8159485, -0.056019187)
+material_override = SubResource("StandardMaterial3D_csg1g")
+mesh = SubResource("BoxMesh_1mwat")

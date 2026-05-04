@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b8y2vd5wsweti"]
+
+[ext_resource type="Script" uid="uid://q5r6g3wo77fu" path="res://scenes/enemies/level2/CasterEnemy.cs" id="1_nbrk2"]
+[ext_resource type="PackedScene" uid="uid://bcl2okwuhv86" path="res://scenes/skillhitboxes/lightning.tscn" id="2_y1fnf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_y0xe8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y0xe8"]
+
+[node name="Node3D" type="CharacterBody3D" unique_id=2137343788 node_paths=PackedStringArray("navigationAgent", "healthBarMarker")]
+script = ExtResource("1_nbrk2")
+attackHitbox = ExtResource("2_y1fnf")
+name = "Caster"
+health = 20
+navigationAgent = NodePath("NavigationAgent3D")
+side = 1
+healthBarMarker = NodePath("Marker3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=264244923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91783714, 0.9822521)
+mesh = SubResource("CapsuleMesh_y0xe8")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=131893640]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1800653312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8913717, 0.99463654)
+shape = SubResource("CapsuleShape3D_y0xe8")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1966307817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8140948, 0)
