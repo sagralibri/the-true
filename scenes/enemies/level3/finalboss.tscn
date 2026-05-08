@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://sbvse0h55w2v"]
+
+[ext_resource type="Script" uid="uid://23isdifrtnl1" path="res://scenes/enemies/level3/FinalBoss.cs" id="1_48hfw"]
+[ext_resource type="PackedScene" uid="uid://hb1xqun0sbl3" path="res://scenes/skillhitboxes/spinner.tscn" id="2_dxmds"]
+[ext_resource type="PackedScene" uid="uid://be4rx53vqn6j6" path="res://scenes/skillhitboxes/shockwave.tscn" id="3_6j7qd"]
+[ext_resource type="PackedScene" uid="uid://dy84o2x81ihih" path="res://scenes/skillhitboxes/fissure.tscn" id="4_7pes4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rqrji"]
+size = Vector3(44.274323, 8.324219, 10.867416)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bmsap"]
+size = Vector3(12.207203, 8.324219, 43.808334)
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=836433388 node_paths=PackedStringArray("navigationAgent", "healthBarMarker")]
+collision_mask = 2
+input_ray_pickable = false
+script = ExtResource("1_48hfw")
+spinHitbox = ExtResource("2_dxmds")
+shockwaveHitbox = ExtResource("3_6j7qd")
+fissureHitbox = ExtResource("4_7pes4")
+name = "Darkness"
+health = 250
+navigationAgent = NodePath("NavigationAgent3D")
+side = 1
+healthBarMarker = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=57144024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7790222, 3.6621094, 4.648491)
+shape = SubResource("BoxShape3D_rqrji")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1048207198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7790222, 3.6621094, 37.155552)
+shape = SubResource("BoxShape3D_rqrji")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1576019178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.106659, 3.6621094, 20.612007)
+shape = SubResource("BoxShape3D_bmsap")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=593748057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.063568, 3.6621094, 20.612007)
+shape = SubResource("BoxShape3D_bmsap")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1076865915]
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=2094817827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5404053, 3.3409739, 10.785458)

@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 public static class BossEvents
 {
     public static Action attackEnd;
+    public static Action turnLightsOn;
+    public static Action turnLightsOff;
+    public static Action bossDead;
 }
 
 
@@ -69,6 +72,7 @@ public partial class TestBoss : Minion
 
         Rid map = GetWorld3D().NavigationMap;
         Vector3 closestPoint = NavigationServer3D.MapGetClosestPoint(map, cacheDirection);
+        closestPoint.Y = GlobalPosition.Y;
         
         var tween = CreateTween();
         tween.TweenProperty(this, "global_position", closestPoint, dashDistance / dashSpeed).SetTrans(Tween.TransitionType.Cubic);
@@ -115,5 +119,9 @@ public partial class TestBoss : Minion
         }
     }
 
-
+    public override void Die()
+    {
+        BossEvents.bossDead.Invoke();
+        base.Die();
+    }
 }

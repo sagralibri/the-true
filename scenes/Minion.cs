@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Godot;
 
 public partial class Minion : CharacterBody3D
@@ -17,7 +18,7 @@ public partial class Minion : CharacterBody3D
     protected bool _canMove = true;
     private HealthDisplay _healthDisplay;
 
-    public override void _Ready()
+    public override async void _Ready()
     {
         maxHealth = health;
         var healthBarScene = GD.Load<PackedScene>(healthBarPath);
@@ -27,6 +28,9 @@ public partial class Minion : CharacterBody3D
         _healthDisplay = healthBarInstance;
         _healthDisplay.MouseFilter = Control.MouseFilterEnum.Ignore;
         _healthDisplay.Visible = showHealthBar;
+        PathfindTo(this.GlobalPosition);
+        await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+        ResetPathfind();
     }
 
     // temporary
@@ -47,20 +51,22 @@ public partial class Minion : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
     {
-        if (_dead || !_hasMoveTarget || !_canMove) return;
+        if (_dead || !_hasMoveTarget || !_canMove)
+            return;
 
         Vector3 destination = navigationAgent.IsNavigationFinished()
             ? _finalTarget
             : navigationAgent.GetNextPathPosition();
 
-        Vector3 direction = destination - GlobalPosition;
-        direction.Y = 0;
+        Vector3 flatDestination = new Vector3(destination.X, GlobalPosition.Y, destination.Z);
+        Vector3 direction = flatDestination - GlobalPosition;
 
-        float distance = direction.Length();
         float moveStep = speed * (float)delta;
         float stopDistance = 0.08f;
 
-        if (GlobalPosition.DistanceTo(_finalTarget) <= stopDistance || distance <= moveStep)
+        Vector3 flatFinalTarget = new Vector3(_finalTarget.X, GlobalPosition.Y, _finalTarget.Z);
+
+        if (GlobalPosition.DistanceTo(flatFinalTarget) <= stopDistance || direction.Length() <= moveStep)
         {
             Velocity = Vector3.Zero;
             _hasMoveTarget = false;
@@ -69,6 +75,8 @@ public partial class Minion : CharacterBody3D
         }
 
         Velocity = direction.Normalized() * speed;
+        Velocity = new Vector3(Velocity.X, 0f, Velocity.Z);
+
         MoveAndSlide();
     }
 
@@ -79,7 +87,7 @@ public partial class Minion : CharacterBody3D
         navigationAgent.TargetPosition = GlobalPosition;
     }
 
-    public void Die()
+    public virtual void Die()
     {
         _dead = true;
 
@@ -107,7 +115,7 @@ public partial class Minion : CharacterBody3D
 
         _finalTarget = targetPosition;
         _hasMoveTarget = true;
-        
+
         navigationAgent.TargetPosition = targetPosition;
     }
 

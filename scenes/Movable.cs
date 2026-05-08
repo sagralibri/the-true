@@ -53,6 +53,13 @@ public partial class Movable : Minion
 		}
 	}
 
+    public override void Die()
+    {
+        base.Die();
+		GameManager.Instance.ResetScene();
+    }
+
+
 	public enum AbilityType
 	{
 		Fireball,
@@ -167,6 +174,7 @@ public partial class Movable : Minion
 					Vector3 desiredPosition = GlobalPosition + dashDirection * dashDistance;
 					Rid map = GetWorld3D().NavigationMap;
 					Vector3 closestPoint = NavigationServer3D.MapGetClosestPoint(map, desiredPosition);
+					closestPoint.Y = 0;
 					
 
 
@@ -194,7 +202,7 @@ public partial class Movable : Minion
 				ability.buffered = false;
 				GD.Print($"{ability.name} used");
 				var skillHitboxInstance = ability.hitboxScene.Instantiate<SkillHitbox>();
-				GetTree().CurrentScene.AddChild(skillHitboxInstance);
+				GetViewport().AddChild(skillHitboxInstance);
 				skillHitboxInstance.origin = this;
 				ability.Used();
 				GetViewport().SetInputAsHandled();
@@ -251,41 +259,28 @@ public partial class Movable : Minion
 	{
 		GD.Print($"GM player: {GameManager.Instance.player.GlobalPosition}");
 		GD.Print($"Debug player: {GlobalPosition}");
+
 		Vector2 mousePos = GetViewport().GetMousePosition();
 
 		Camera3D camera = GetViewport().GetCamera3D();
 
 		Vector3 rayOrigin = camera.ProjectRayOrigin(mousePos);
 		Vector3 rayDirection = camera.ProjectRayNormal(mousePos);
-		Vector3 rayEnd = rayOrigin + rayDirection * _rayLength;
 
-		PhysicsRayQueryParameters3D query =
-			PhysicsRayQueryParameters3D.Create(rayOrigin, rayEnd);
+		Plane groundPlane = new Plane(Vector3.Up, 0f);
+		Vector3? planeHit = groundPlane.IntersectsRay(rayOrigin, rayDirection);
 
-		var result = GetWorld3D().DirectSpaceState.IntersectRay(query);
+		if (planeHit == null)
+			return;
 
-		Vector3 clickedPosition;
-
-		if (result.Count > 0)
-		{
-			clickedPosition = result["position"].AsVector3();
-		}
-		else
-		{
-			Plane groundPlane = new Plane(Vector3.Up, 0f);
-			Vector3? planeHit = groundPlane.IntersectsRay(rayOrigin, rayDirection);
-
-			if (planeHit == null) return;
-
-			clickedPosition = planeHit.Value;
-		}
+		Vector3 clickedPosition = planeHit.Value;
 
 		Rid map = GetWorld3D().NavigationMap;
 		Vector3 targetPosition =
 			NavigationServer3D.MapGetClosestPoint(map, clickedPosition);
 
 		var clickMarkerInstance = clickMarker.Instantiate<Suicidal>();
-		GetTree().CurrentScene.AddChild(clickMarkerInstance);
+		GetViewport().AddChild(clickMarkerInstance);
 		clickMarkerInstance.GlobalPosition = targetPosition;
 
 		GD.Print($"Clicked: {clickedPosition}");

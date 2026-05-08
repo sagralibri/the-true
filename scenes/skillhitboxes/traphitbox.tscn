@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://0t7c0wv2o7dh"]
+
+[ext_resource type="Script" uid="uid://bhkainoipuko6" path="res://scenes/skillhitboxes/DelayedHitbox.cs" id="1_vdj8d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vdj8d"]
+size = Vector3(2.4586182, 1, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_vdj8d"]
+inner_radius = 0.748
+
+[node name="Traphitbox" type="Node3D" unique_id=387613154 node_paths=PackedStringArray("warningNode", "hitNode", "area")]
+script = ExtResource("1_vdj8d")
+delay = 0.5
+warningNode = NodePath("warning")
+hitNode = NodePath("hit")
+callAttackEnd = true
+area = NodePath("hit/Area3D")
+lifetime = 1.0
+
+[node name="warning" type="Node3D" parent="." unique_id=1103905430]
+
+[node name="Label3D" type="Label3D" parent="warning" unique_id=2110160006]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.090819, -1.3759549)
+text = "WARNING"
+font_size = 79
+
+[node name="Label3D2" type="Label3D" parent="warning" unique_id=832020083]
+transform = Transform3D(0.70710677, 0.70710677, 3.090862e-08, 0, -4.371139e-08, 1, 0.70710677, -0.70710677, -3.090862e-08, 1.9891839, 0.090819, -0.44328678)
+text = "WARNING"
+font_size = 79
+
+[node name="Label3D3" type="Label3D" parent="warning" unique_id=1561589555]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 2.8693082, 0.090819, 1.4837518)
+text = "WARNING"
+font_size = 79
+
+[node name="Label3D4" type="Label3D" parent="warning" unique_id=706950802]
+transform = Transform3D(-0.7071068, 0.7071067, 3.090862e-08, 2.1175824e-22, -4.371138e-08, 1, 0.7071067, 0.7071068, 3.0908613e-08, 1.93664, 0.090819, 3.4729357)
+text = "WARNING"
+font_size = 79
+
+[node name="Label3D5" type="Label3D" parent="warning" unique_id=2080424775]
+transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, 0, -4.371139e-08, 1, -8.742278e-08, 1, 4.371139e-08, -0.016395211, 0.090819, 4.2793093)
+text = "WARNING"
+font_size = 79
+
+[node name="Label3D6" type="Label3D" parent="warning" unique_id=1202985633]
+transform = Transform3D(-0.70710665, -0.7071069, -3.0908613e-08, 2.1175824e-22, -4.371138e-08, 1, -0.7071069, 0.70710665, 3.0908623e-08, -2.005579, 0.090819, 3.346641)
+text = "WARNING"
+font_size = 79
+
+[node name="Label3D7" type="Label3D" parent="warning" unique_id=509786245]
+transform = Transform3D(1.3113416e-07, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, -1.3113416e-07, -5.7320566e-15, -3.1061885, 0.090819, 1.4256926)
+text = "WARNING"
+font_size = 79
+
+[node name="Label3D8" type="Label3D" parent="warning" unique_id=1157032919]
+transform = Transform3D(0.70710695, -0.7071066, -3.0908627e-08, 2.1175824e-22, -4.371138e-08, 1, -0.7071066, -0.70710695, -3.0908613e-08, -2.1735203, 0.090819, -0.56349134)
+text = "WARNING"
+font_size = 79
+
+[node name="hit" type="Node3D" parent="." unique_id=1311265382]
+
+[node name="Area3D" type="Area3D" parent="hit" unique_id=1794607561]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hit/Area3D" unique_id=759845541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034484863, 0, -1.656079)
+shape = SubResource("BoxShape3D_vdj8d")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="hit/Area3D" unique_id=871692364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034484863, 0, 4.208132)
+shape = SubResource("BoxShape3D_vdj8d")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="hit/Area3D" unique_id=94761736]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -2.265092, 0, -0.84354806)
+shape = SubResource("BoxShape3D_vdj8d")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="hit/Area3D" unique_id=1914767271]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 1.9627395, 0, 3.382804)
+shape = SubResource("BoxShape3D_vdj8d")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="hit/Area3D" unique_id=651012930]
+transform = Transform3D(-0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071068, 2.1893144, 0.12293625, -0.5365064)
+shape = SubResource("BoxShape3D_vdj8d")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="hit/Area3D" unique_id=648329454]
+transform = Transform3D(-0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071068, -2.2025228, 0.12293625, 3.437322)
+shape = SubResource("BoxShape3D_vdj8d")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="hit/Area3D" unique_id=279426089]
+transform = Transform3D(-5.9604645e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -5.9604645e-08, 3.0079217, 0.12293625, 1.3955312)
+shape = SubResource("BoxShape3D_vdj8d")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="hit/Area3D" unique_id=1554322380]
+transform = Transform3D(-5.9604645e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -5.9604645e-08, -3.149901, 0.12293625, 1.3955312)
+shape = SubResource("BoxShape3D_vdj8d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hit" unique_id=611806947]
+transform = Transform3D(3.665, 0, 0, 0, 3.665, 0, 0, 0, 3.665, 0, 0, 1.2085629)
+mesh = SubResource("TorusMesh_vdj8d")

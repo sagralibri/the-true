@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://hb1xqun0sbl3"]
+
+[ext_resource type="Script" uid="uid://bhkainoipuko6" path="res://scenes/skillhitboxes/DelayedHitbox.cs" id="1_nwaho"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8x87a"]
+size = Vector3(1, 9.108887, 48.318604)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bmsap"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_bmsap"]
+size = Vector3(1, 2.05, 44.16)
+
+[node name="Node3D" type="Node3D" unique_id=1429146926 node_paths=PackedStringArray("warningNode", "hitNode", "area")]
+script = ExtResource("1_nwaho")
+warningNode = NodePath("warning")
+hitNode = NodePath("hit")
+area = NodePath("hit/Area3D")
+damage = 25
+lifetime = 10.0
+hitStop = true
+
+[node name="warning" type="Node3D" parent="." unique_id=2022148516]
+
+[node name="Label3D" type="Label3D" parent="warning" unique_id=532700115]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -0.3033142, 1.2567368, -15.138203)
+text = "WARNING"
+font_size = 462
+
+[node name="Label3D3" type="Label3D" parent="warning" unique_id=636650210]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -0.3033142, 1.2567368, 8.27731)
+text = "WARNING"
+font_size = 462
+
+[node name="Label3D4" type="Label3D" parent="warning" unique_id=1862801202]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -0.3033142, 1.2567368, 20.166859)
+text = "WARNING"
+font_size = 462
+
+[node name="Label3D2" type="Label3D" parent="warning" unique_id=1805499127]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -0.3033142, 1.2567368, -3.3771925)
+text = "WARNING"
+font_size = 462
+
+[node name="hit" type="Node3D" parent="." unique_id=556605591]
+
+[node name="Area3D" type="Area3D" parent="hit" unique_id=1918841811]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hit/Area3D" unique_id=1013248775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44644165, 4.0544434, 2.3724365)
+shape = SubResource("BoxShape3D_8x87a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hit" unique_id=1661600638]
+transform = Transform3D(1.775, 0, 0, 0, 1.775, 0, 0, 0, 1.775, -0.36038208, 1.9537606, 1.6621103)
+material_override = SubResource("StandardMaterial3D_bmsap")
+mesh = SubResource("PrismMesh_bmsap")

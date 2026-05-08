@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cm6vx7seyq8jr"]
+
+[ext_resource type="Script" uid="uid://dm70ryb0ub1qd" path="res://scenes/ui/StartMenu.cs" id="1_t5jgv"]
+
+[node name="Start" type="Control" unique_id=996676883 node_paths=PackedStringArray("startButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t5jgv")
+startButton = NodePath("Button")
+
+[node name="Button" type="Button" parent="." unique_id=1441451157]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 326.0
+offset_right = 725.0
+offset_bottom = 441.0
+text = "start"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=529375417]
+layout_mode = 0
+offset_left = 367.0
+offset_top = 135.0
+offset_right = 757.0
+offset_bottom = 175.0
+text = "the true"

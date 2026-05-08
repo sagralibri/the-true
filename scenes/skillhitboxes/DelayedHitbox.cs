@@ -7,6 +7,8 @@ public partial class DelayedHitbox : SkillHitbox
     [Export] public Node3D warningNode;
     [Export] public Node3D hitNode;
     [Export] public bool callAttackEnd;
+    private bool _followingPlayer = false;
+    private bool _hitboxOut = false;
 
     public override void _Ready()
     {
@@ -19,9 +21,25 @@ public partial class DelayedHitbox : SkillHitbox
         _ = StartDelay();
     }
 
+    public void FollowPlayer()
+    {
+        _followingPlayer = true;
+    }
+
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+
+        if (_followingPlayer && !_hitboxOut)
+        {
+            GlobalPosition = GameManager.Instance.player.GlobalPosition;
+        }
+    }
+
     private async Task StartDelay()
     {
         await ToSignal(GetTree().CreateTimer(delay), "timeout");
+        _hitboxOut = true;
         warningNode.Visible = false;
         hitNode.Visible = true;
         area.Monitoring = true;
@@ -30,7 +48,7 @@ public partial class DelayedHitbox : SkillHitbox
         {
             if (IsInstanceValid(this)) QueueFree();
             if (!callAttackEnd) return;
-            BossEvents.attackEnd.Invoke();
+            BossEvents.attackEnd?.Invoke();
         };
     }
 }

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://chqkqxf1u6aqk"]
+
+[ext_resource type="Script" uid="uid://b2wrl7guuaflm" path="res://scenes/enemies/level2/Boss2.cs" id="1_52kxx"]
+[ext_resource type="PackedScene" uid="uid://ccnf1eii0os1s" path="res://scenes/skillhitboxes/charge.tscn" id="2_1xaj2"]
+[ext_resource type="PackedScene" uid="uid://0t7c0wv2o7dh" path="res://scenes/skillhitboxes/traphitbox.tscn" id="3_kre7q"]
+[ext_resource type="PackedScene" uid="uid://bcl2okwuhv86" path="res://scenes/skillhitboxes/lightning.tscn" id="4_fe20k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1xaj2"]
+radius = 0.7416992
+height = 1.9580078
+
+[sub_resource type="SphereMesh" id="SphereMesh_kre7q"]
+
+[node name="Boss2" type="CharacterBody3D" unique_id=1950760118 node_paths=PackedStringArray("navigationAgent", "healthBarMarker")]
+script = ExtResource("1_52kxx")
+chargeHitbox = ExtResource("2_1xaj2")
+wallHitbox = ExtResource("3_kre7q")
+strikeHitbox = ExtResource("4_fe20k")
+name = "Ice Guy"
+health = 225
+navigationAgent = NodePath("NavigationAgent3D")
+side = 1
+healthBarMarker = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=626497056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5483832, 0)
+shape = SubResource("CapsuleShape3D_1xaj2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=507540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4996376, 0)
+mesh = SubResource("SphereMesh_kre7q")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=36648465]
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=884019085]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3603454, 0)

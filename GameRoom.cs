@@ -1,6 +1,9 @@
 using Godot;
 using System;
 
+
+
+
 public partial class GameRoom : Node3D
 {
     [Export] Marker3D startPoint;
@@ -15,9 +18,12 @@ public partial class GameRoom : Node3D
         AddChild(characterInstance);
         characterInstance.GlobalTransform = startPoint.GlobalTransform;
 
+        GD.Print("Loading UI");
+
+
         var uiScene = GD.Load<PackedScene>(uiPath);
         var uiInstance = uiScene.Instantiate<Control>();
-        GetTree().CurrentScene.AddChild(uiInstance);
+        AddChild(uiInstance);
         foreach (var ability in characterInstance.abilities)
         {
             var container = uiInstance.GetNode<HBoxContainer>("HBoxContainer");

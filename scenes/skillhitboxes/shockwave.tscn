@@ -22,26 +22,31 @@ hitStop = true
 
 [node name="Label3D" type="Label3D" parent="warning" unique_id=1091333120]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.3044119, 0)
+shaded = true
 text = "WARNING"
 font_size = 138
 
 [node name="Label3D3" type="Label3D" parent="warning" unique_id=152869246]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.3044119, 0.81220585)
+shaded = true
 text = "WARNING"
 font_size = 94
 
 [node name="Label3D5" type="Label3D" parent="warning" unique_id=768978693]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.3044119, -0.83203703)
+shaded = true
 text = "WARNING"
 font_size = 94
 
 [node name="Label3D4" type="Label3D" parent="warning" unique_id=1344861161]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.3044119, 1.5557511)
+shaded = true
 text = "WARNING"
 font_size = 71
 
 [node name="Label3D6" type="Label3D" parent="warning" unique_id=2473548]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.3044119, -1.4277766)
+shaded = true
 text = "WARNING"
 font_size = 71
 

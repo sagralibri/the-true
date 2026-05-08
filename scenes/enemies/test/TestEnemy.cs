@@ -27,6 +27,7 @@ public partial class TestEnemy : Minion
         {
             Rid map = GetWorld3D().NavigationMap;
             Vector3 target = NavigationServer3D.MapGetClosestPoint(map, GameManager.Instance.player.GlobalPosition);
+            target.Y = 0;
 
             PathfindTo(target);
         }

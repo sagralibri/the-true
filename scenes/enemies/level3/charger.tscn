@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cgv5dfju2vpqg"]
+
+[ext_resource type="Script" uid="uid://8f3nlvlxe0i0" path="res://scenes/enemies/level3/Charger.cs" id="1_xahou"]
+[ext_resource type="PackedScene" uid="uid://ccnf1eii0os1s" path="res://scenes/skillhitboxes/charge.tscn" id="2_66npt"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_66npt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6tbor"]
+
+[node name="Charger" type="CharacterBody3D" unique_id=1569461262 node_paths=PackedStringArray("navigationAgent", "healthBarMarker")]
+script = ExtResource("1_xahou")
+chargeHitbox = ExtResource("2_66npt")
+name = "Charger"
+health = 50
+navigationAgent = NodePath("NavigationAgent3D")
+speed = 7.0
+side = 1
+healthBarMarker = NodePath("Marker3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=839061110]
+mesh = SubResource("CapsuleMesh_66npt")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1402178121]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=647850545]
+shape = SubResource("CapsuleShape3D_6tbor")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1346617041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8140948, 0)
